@@ -15,6 +15,7 @@ public class CodingPractices {
 		//removed code
 		//dev code added here
 		//stashed code added here
+		//line 4 added
 	}
 
 }
