@@ -1,9 +1,10 @@
 package com.baina;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baina.db.Address;
+import com.baina.db.AddressRepository;
+import com.baina.db.CountryCode;
+import com.baina.db.CountryCodeRepository;
+import com.baina.db.Student;
+import com.baina.db.StudentRepository;
+
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
@@ -25,12 +33,68 @@ import jakarta.annotation.PostConstruct;
 public class SpringBootProjectApplication {
 
 	private List<Product> products;
+	
+	@Autowired
+	private StudentRepository repo;
+	
+	@Autowired
+	private AddressRepository arepo;
+	
+	@Autowired
+	private CountryCodeRepository crepo;
+	
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootProjectApplication.class, args);
+	}
+	
+	//@PostConstruct
+	public void init2() {
+		
+		
+		/*
+		Student st=new Student();
+		st.setName("naresh");
+		st.setMobile("9490457234");
+		//repo.save(st);
+		
+		CountryCode cCode=new CountryCode();
+		cCode.setName("india");
+		
+		crepo.save(cCode);
+		
+		
+		Address add1=new Address();
+		add1.setVillage("vvraopet");
+		add1.setDistrict("jagtial");
+		add1.setState("telangana");
+		add1.setPincode("505331");
+		add1.setCode(cCode);
+		add1.setStudent(st);
+		
+		Address add2=new Address();
+		add2.setVillage("gachobowli");
+		add2.setDistrict("hyderabad");
+		add2.setState("telangana");
+		add2.setPincode("500001");
+		add2.setCode(cCode);
+		add2.setStudent(st);
+		
+		
+		
+		
+		arepo.save(add1);
+		//arepo.save(add2);
+		*/
+		
+		//repo.delete(repo.findById(1).get());
+		
+		//arepo.delete(arepo.findById(1).get());
+		
+		
 	}
 	
 	@PostConstruct
