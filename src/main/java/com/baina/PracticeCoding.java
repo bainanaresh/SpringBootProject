@@ -4,28 +4,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class PracticeCoding {
 
 	public static void main(String[] args) {
-		
-		List<Integer> list=new ArrayList<>();
-        list.add(1);
-		list.add(3);
-        list.add(4);
-		list.add(5);
-		list.add(2);
+		Set<Integer> set = new LinkedHashSet<>();
+		Collections.addAll(set, 1, 3, 4, 4, 5, 2, 7, 11, 9); // duplicates ignored by the set
+		List<Integer> list = new ArrayList<>(set);
 
-		list.add(7);
+		System.out.println("original (after dedupe): " + list);
 
-		list.add(11);
-
-		list.add(9);
-		System.out.println(list);
 		Collections.sort(list, Comparator.reverseOrder());
-		System.out.println(list);
 
-
+		System.out.println("deduped & sorted desc (in-place): " + list);
 	}
 
 }

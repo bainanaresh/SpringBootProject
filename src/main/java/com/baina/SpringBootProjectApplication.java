@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +30,8 @@ import com.baina.db.StudentRepository;
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
+@EntityScan(basePackages = {"com.baina.db", "com.baina.todo.entity", "com.baina.auth.entity"})
+@EnableJpaRepositories(basePackages = {"com.baina.db", "com.baina.todo.repository", "com.baina.auth.repository"})
 @RestController
 @CrossOrigin("*")
 public class SpringBootProjectApplication {
